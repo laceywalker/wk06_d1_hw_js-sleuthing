@@ -19,39 +19,44 @@
 
 // Episode 2 //
 
-const murderer = 'Professor Plum';
-
-const changeMurderer = function() {
-  murderer = 'Mrs. Peacock';
-}
-
-const declareMurderer = function() {
-  return `The murderer is ${murderer}.`;
-}
-
-changeMurderer();
-const verdict = declareMurderer();
-console.log(verdict);
+// const murderer = 'Professor Plum';
+//
+// const changeMurderer = function() {
+//   murderer = 'Mrs. Peacock';
+// }
+//
+// const declareMurderer = function() {
+//   return `The murderer is ${murderer}.`;
+// }
+//
+// changeMurderer();
+// const verdict = declareMurderer();
+// console.log(verdict);
 
 // This will throw an error. Line 22 uses 'const' which means the variable 'murderer' cannot be changed.
 // the subsequent function will not work because it tries to change a constant and causes an error
 
 // Episode 3 //
 
-// ```js
-// let murderer = 'Professor Plum';
+
+let murderer = 'Professor Plum';
+
+const declareMurderer = function() {
+  let murderer = 'Mrs. Peacock';
+  return `The murderer is ${murderer}.`;
+}
+
+const firstVerdict = declareMurderer();
+console.log('First Verdict: ', firstVerdict);
+
+const secondVerdict = `The murderer is ${murderer}.`;
+console.log('Second Verdict: ', secondVerdict);
 //
-// const declareMurderer = function() {
-//   let murderer = 'Mrs. Peacock';
-//   return `The murderer is ${murderer}.`;
-// }
-//
-// const firstVerdict = declareMurderer();
-// console.log('First Verdict: ', firstVerdict);
-//
-// const secondVerdict = `The murderer is ${murderer}.`;
-// console.log('Second Verdict: ', secondVerdict);
-// ```
+// // This will return First Verdit: Mrs. Peacock and Second Verdict: Professor Plum because the function
+// // declareMurderer changes the value of the variable 'murderer' but this is only visible within the scope
+// // of the function declareMurderer. The secondVerdict will use the variable 'murderer' on line 42 because
+// // the original 'murderer' variable is within the scope of secondVerdict
+
 //
 // #### Episode 4
 //
