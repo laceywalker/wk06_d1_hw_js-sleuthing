@@ -39,45 +39,47 @@
 // Episode 3 //
 
 
-let murderer = 'Professor Plum';
-
-const declareMurderer = function() {
-  let murderer = 'Mrs. Peacock';
-  return `The murderer is ${murderer}.`;
-}
-
-const firstVerdict = declareMurderer();
-console.log('First Verdict: ', firstVerdict);
-
-const secondVerdict = `The murderer is ${murderer}.`;
-console.log('Second Verdict: ', secondVerdict);
+// let murderer = 'Professor Plum';
 //
+// const declareMurderer = function() {
+//   let murderer = 'Mrs. Peacock';
+//   return `The murderer is ${murderer}.`;
+// }
+//
+// const firstVerdict = declareMurderer();
+// console.log('First Verdict: ', firstVerdict);
+//
+// const secondVerdict = `The murderer is ${murderer}.`;
+// console.log('Second Verdict: ', secondVerdict);
+// //
 // // This will return First Verdit: Mrs. Peacock and Second Verdict: Professor Plum because the function
 // // declareMurderer changes the value of the variable 'murderer' but this is only visible within the scope
 // // of the function declareMurderer. The secondVerdict will use the variable 'murderer' on line 42 because
 // // the original 'murderer' variable is within the scope of secondVerdict
 
+// Episode 4 //
+
+let suspectOne = 'Miss Scarlet';
+let suspectTwo = 'Professor Plum';
+let suspectThree = 'Mrs. Peacock';
+
+const declareAllSuspects = function() {
+  let suspectThree = 'Colonel Mustard';
+  return `The suspects are ${suspectOne}, ${suspectTwo}, ${suspectThree}.`;
+}
+
+const suspects = declareAllSuspects();
+console.log(suspects);
+console.log(`Suspect three is ${suspectThree}.`);
+
+// // Line 72 will print 'The suspects are Miss Scarlet, Professor Plum, Colonel Mustard' because the function
+// declareAllSuspects changes the variable suspectThree, and therefore is visible within its scope, when called
+// it will show the return statement written within the function. The console.log on line 73 will show 'Suspect
+// three is Mrs Peacock' because it has the same scope as the let on line 64.
+
+// Episode 5
 //
-// #### Episode 4
-//
-// ```js
-// let suspectOne = 'Miss Scarlet';
-// let suspectTwo = 'Professor Plum';
-// let suspectThree = 'Mrs. Peacock';
-//
-// const declareAllSuspects = function() {
-//   let suspectThree = 'Colonel Mustard';
-//   return `The suspects are ${suspectOne}, ${suspectTwo}, ${suspectThree}.`;
-// }
-//
-// const suspects = declareAllSuspects();
-// console.log(suspects);
-// console.log(`Suspect three is ${suspectThree}.`);
-// ```
-//
-// // #### Episode 5
-//
-// ```js
+
 // const scenario = {
 //   murderer: 'Miss Scarlet',
 //   room: 'Kitchen',
