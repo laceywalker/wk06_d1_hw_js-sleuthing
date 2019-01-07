@@ -80,56 +80,60 @@
 // Episode 5
 
 
-const scenario = {
-  murderer: 'Miss Scarlet',
-  room: 'Kitchen',
-  weapon: 'Candle Stick'
-};
-
-const changeWeapon = function(newWeapon) {
-  scenario.weapon = newWeapon;
-}
-
-const declareWeapon = function() {
-  return `The weapon is the ${scenario.weapon}.`;
-}
-
-changeWeapon('Revolver');
-const verdict = declareWeapon();
-console.log(verdict);
-
-Line 99 will return 'The weapon is the revolver' because the first function on line 89 changes the weapon
-value to what is passed through the parameter 'newWeapon', which is later called and changed with the argument
-'revolver'. The function on line 93 will use string interpolation to call 'the weapon is the revolver',
- which is then shown via line 99.
+// const scenario = {
+//   murderer: 'Miss Scarlet',
+//   room: 'Kitchen',
+//   weapon: 'Candle Stick'
+// };
+//
+// const changeWeapon = function(newWeapon) {
+//   scenario.weapon = newWeapon;
+// }
+//
+// const declareWeapon = function() {
+//   return `The weapon is the ${scenario.weapon}.`;
+// }
+//
+// changeWeapon('Revolver');
+// const verdict = declareWeapon();
+// console.log(verdict);
+//
+// Line 99 will return 'The weapon is the revolver' because the first function on line 89 changes the weapon
+// value to what is passed through the parameter 'newWeapon', which is later called and changed with the argument
+// 'revolver'. The function on line 93 will use string interpolation to call 'the weapon is the revolver',
+//  which is then shown via line 99.
 
 // Episode 6
+
+let murderer = 'Colonel Mustard';
+
+const changeMurderer = function() {
+  murderer = 'Mr. Green';
+
+  const plotTwist = function() {
+    murderer = 'Mrs. White';
+  }
+
+  plotTwist();
+}
+
+const declareMurderer = function () {
+  return `The murderer is ${murderer}.`;
+}
+
+changeMurderer();
+const verdict = declareMurderer();
+console.log(verdict);
+
+This will return "The murderer is Mrs White" because the function plotTwist is is declared inside changeMurderer
+and changes the murderer to Mrs White. However, this function is not initially within the scope of
+changeMurderer function UNTIL plotTwist function is called within the function changeMurderer, but outide
+the curly brackets of the function plotTwist. They then have the same scope. Once its called within
+declareMurderer and then stored in the variable 'verdict' means it will be shown by line 126
+
+// Episode 7
 //
-// ```js
-// let murderer = 'Colonel Mustard';
-//
-// const changeMurderer = function() {
-//   murderer = 'Mr. Green';
-//
-//   const plotTwist = function() {
-//     murderer = 'Mrs. White';
-//   }
-//
-//   plotTwist();
-// }
-//
-// const declareMurderer = function () {
-//   return `The murderer is ${murderer}.`;
-// }
-//
-// changeMurderer();
-// const verdict = declareMurderer();
-// console.log(verdict);
-// ```
-//
-// #### Episode 7
-//
-// ```js
+
 // let murderer = 'Professor Plum';
 //
 // const changeMurderer = function() {
