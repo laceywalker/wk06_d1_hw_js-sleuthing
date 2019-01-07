@@ -59,18 +59,18 @@
 
 // Episode 4 //
 
-let suspectOne = 'Miss Scarlet';
-let suspectTwo = 'Professor Plum';
-let suspectThree = 'Mrs. Peacock';
-
-const declareAllSuspects = function() {
-  let suspectThree = 'Colonel Mustard';
-  return `The suspects are ${suspectOne}, ${suspectTwo}, ${suspectThree}.`;
-}
-
-const suspects = declareAllSuspects();
-console.log(suspects);
-console.log(`Suspect three is ${suspectThree}.`);
+// let suspectOne = 'Miss Scarlet';
+// let suspectTwo = 'Professor Plum';
+// let suspectThree = 'Mrs. Peacock';
+//
+// const declareAllSuspects = function() {
+//   let suspectThree = 'Colonel Mustard';
+//   return `The suspects are ${suspectOne}, ${suspectTwo}, ${suspectThree}.`;
+// }
+//
+// const suspects = declareAllSuspects();
+// console.log(suspects);
+// console.log(`Suspect three is ${suspectThree}.`);
 
 // // Line 72 will print 'The suspects are Miss Scarlet, Professor Plum, Colonel Mustard' because the function
 // declareAllSuspects changes the variable suspectThree, and therefore is visible within its scope, when called
@@ -78,28 +78,32 @@ console.log(`Suspect three is ${suspectThree}.`);
 // three is Mrs Peacock' because it has the same scope as the let on line 64.
 
 // Episode 5
-//
 
-// const scenario = {
-//   murderer: 'Miss Scarlet',
-//   room: 'Kitchen',
-//   weapon: 'Candle Stick'
-// };
-//
-// const changeWeapon = function(newWeapon) {
-//   scenario.weapon = newWeapon;
-// }
-//
-// const declareWeapon = function() {
-//   return `The weapon is the ${scenario.weapon}.`;
-// }
-//
-// changeWeapon('Revolver');
-// const verdict = declareWeapon();
-// console.log(verdict);
-// ```
-//
-// #### Episode 6
+
+const scenario = {
+  murderer: 'Miss Scarlet',
+  room: 'Kitchen',
+  weapon: 'Candle Stick'
+};
+
+const changeWeapon = function(newWeapon) {
+  scenario.weapon = newWeapon;
+}
+
+const declareWeapon = function() {
+  return `The weapon is the ${scenario.weapon}.`;
+}
+
+changeWeapon('Revolver');
+const verdict = declareWeapon();
+console.log(verdict);
+
+Line 99 will return 'The weapon is the revolver' because the first function on line 89 changes the weapon
+value to what is passed through the parameter 'newWeapon', which is later called and changed with the argument
+'revolver'. The function on line 93 will use string interpolation to call 'the weapon is the revolver',
+ which is then shown via line 99.
+
+// Episode 6
 //
 // ```js
 // let murderer = 'Colonel Mustard';
