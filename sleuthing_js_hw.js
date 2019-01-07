@@ -105,19 +105,56 @@
 
 // Episode 6
 
-let murderer = 'Colonel Mustard';
+// let murderer = 'Colonel Mustard';
+//
+// const changeMurderer = function() {
+//   murderer = 'Mr. Green';
+//
+//   const plotTwist = function() {
+//     murderer = 'Mrs. White';
+//   }
+//
+//   plotTwist();
+// }
+//
+// const declareMurderer = function () {
+//   return `The murderer is ${murderer}.`;
+// }
+//
+// changeMurderer();
+// const verdict = declareMurderer();
+// console.log(verdict);
+//
+// This will return "The murderer is Mrs White" because the function plotTwist is is declared inside changeMurderer
+// and changes the murderer to Mrs White. However, this function is not initially within the scope of
+// changeMurderer function UNTIL plotTwist function is called within the function changeMurderer, but outide
+// the curly brackets of the function plotTwist. They then have the same scope. Once its called within
+// declareMurderer and then stored in the variable 'verdict' means it will be shown by line 126
+
+// Episode 7
+//
+
+let murderer = 'Professor Plum';
 
 const changeMurderer = function() {
   murderer = 'Mr. Green';
 
   const plotTwist = function() {
-    murderer = 'Mrs. White';
+    let murderer2 = 'Colonel Mustard';
+    console.log(murderer2)
+    const unexpectedOutcome = function() {
+      murderer2 = 'Miss Scarlet';
+    }
+
+    unexpectedOutcome();
+    console.log(murderer2)
   }
 
   plotTwist();
+  console.log(murderer2)
 }
 
-const declareMurderer = function () {
+const declareMurderer = function() {
   return `The murderer is ${murderer}.`;
 }
 
@@ -125,41 +162,11 @@ changeMurderer();
 const verdict = declareMurderer();
 console.log(verdict);
 
-This will return "The murderer is Mrs White" because the function plotTwist is is declared inside changeMurderer
-and changes the murderer to Mrs White. However, this function is not initially within the scope of
-changeMurderer function UNTIL plotTwist function is called within the function changeMurderer, but outide
-the curly brackets of the function plotTwist. They then have the same scope. Once its called within
-declareMurderer and then stored in the variable 'verdict' means it will be shown by line 126
+There are two different variables at play - both confusingly called murderer. The murderer variable
+on line 140 has a different scope than the murderer variable on line 143. When it is declared again,
+it's almost like a new thing (this I realized through multiple console.log statements). The declareMurderer
+function has the same scope as the murderer variable on line 140.
 
-// Episode 7
-//
-
-// let murderer = 'Professor Plum';
-//
-// const changeMurderer = function() {
-//   murderer = 'Mr. Green';
-//
-//   const plotTwist = function() {
-//     let murderer = 'Colonel Mustard';
-//
-//     const unexpectedOutcome = function() {
-//       murderer = 'Miss Scarlet';
-//     }
-//
-//     unexpectedOutcome();
-//   }
-//
-//   plotTwist();
-// }
-//
-// const declareMurderer = function() {
-//   return `The murderer is ${murderer}.`;
-// }
-//
-// changeMurderer();
-// const verdict = declareMurderer();
-// console.log(verdict);
-// ```
 //
 // #### Episode 8
 //
