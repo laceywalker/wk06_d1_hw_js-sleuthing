@@ -1,38 +1,43 @@
 // Episode 1 //
 
-const scenario = {
-  murderer: 'Miss Scarlet',
-  room: 'Library',
-  weapon: 'Rope'
-};
-
-const declareMurderer = function() {
-  return `The murderer is ${scenario.murderer}.`;
-}
-
-const verdict = declareMurderer();
-console.log(verdict);
+// const scenario = {
+//   murderer: 'Miss Scarlet',
+//   room: 'Library',
+//   weapon: 'Rope'
+// };
+//
+// const declareMurderer = function() {
+//   return `The murderer is ${scenario.murderer}.`;
+// }
+//
+// const verdict = declareMurderer();
+// console.log(verdict);
 
 // Episode 1 will show the string interpolation on line 10 as a result because each const is within the
 // same scope and therefore they are all visible to each other
 
-// // Episode 2 //
-// const murderer = 'Professor Plum';
-//
-// const changeMurderer = function() {
-//   murderer = 'Mrs. Peacock';
-// }
-//
-// const declareMurderer = function() {
-//   return `The murderer is ${murderer}.`;
-// }
-//
-// changeMurderer();
-// const verdict = declareMurderer();
-// console.log(verdict);
 
-// #### Episode 3
-//
+// Episode 2 //
+
+const murderer = 'Professor Plum';
+
+const changeMurderer = function() {
+  murderer = 'Mrs. Peacock';
+}
+
+const declareMurderer = function() {
+  return `The murderer is ${murderer}.`;
+}
+
+changeMurderer();
+const verdict = declareMurderer();
+console.log(verdict);
+
+// This will throw an error. Line 22 uses 'const' which means the variable 'murderer' cannot be changed.
+// the subsequent function will not work because it tries to change a constant and causes an error
+
+// Episode 3 //
+
 // ```js
 // let murderer = 'Professor Plum';
 //
