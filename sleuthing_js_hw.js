@@ -134,79 +134,85 @@
 // Episode 7
 //
 
-let murderer = 'Professor Plum';
-
-const changeMurderer = function() {
-  murderer = 'Mr. Green';
-
-  const plotTwist = function() {
-    let murderer2 = 'Colonel Mustard';
-    console.log(murderer2)
-    const unexpectedOutcome = function() {
-      murderer2 = 'Miss Scarlet';
-    }
-
-    unexpectedOutcome();
-    console.log(murderer2)
-  }
-
-  plotTwist();
-  console.log(murderer2)
-}
-
-const declareMurderer = function() {
-  return `The murderer is ${murderer}.`;
-}
-
-changeMurderer();
-const verdict = declareMurderer();
-console.log(verdict);
-
-There are two different variables at play - both confusingly called murderer. The murderer variable
-on line 140 has a different scope than the murderer variable on line 143. When it is declared again,
-it's almost like a new thing (this I realized through multiple console.log statements). The declareMurderer
-function has the same scope as the murderer variable on line 140.
-
+// let murderer = 'Professor Plum';
 //
-// #### Episode 8
+// const changeMurderer = function() {
+//   murderer = 'Mr. Green';
 //
-// ```js
-// const scenario = {
-//   murderer: 'Mrs. Peacock',
-//   room: 'Conservatory',
-//   weapon: 'Lead Pipe'
-// };
-//
-// const changeScenario = function() {
-//   scenario.murderer = 'Mrs. Peacock';
-//   scenario.room = 'Dining Room';
-//
-//   const plotTwist = function(room) {
-//     if (scenario.room === room) {
-//       scenario.murderer = 'Colonel Mustard';
+//   const plotTwist = function() {
+//     let murderer2 = 'Colonel Mustard';
+//     console.log(murderer2)
+//     const unexpectedOutcome = function() {
+//       murderer2 = 'Miss Scarlet';
 //     }
 //
-//     const unexpectedOutcome = function(murderer) {
-//       if (scenario.murderer === murderer) {
-//         scenario.weapon = 'Candle Stick';
-//       }
-//     }
-//
-//     unexpectedOutcome('Colonel Mustard');
+//     unexpectedOutcome();
+//     console.log(murderer2)
 //   }
 //
-//   plotTwist('Dining Room');
+//   plotTwist();
+//   console.log(murderer2)
 // }
 //
-// const declareWeapon = function() {
-//   return `The weapon is ${scenario.weapon}.`
+// const declareMurderer = function() {
+//   return `The murderer is ${murderer}.`;
 // }
 //
-// changeScenario();
-// const verdict = declareWeapon();
+// changeMurderer();
+// const verdict = declareMurderer();
 // console.log(verdict);
-// ```
 //
+// There are two different variables at play - both confusingly called murderer. The murderer variable
+// on line 140 has a different scope than the murderer variable on line 143. When it is declared again,
+// it's almost like a new thing (this I realized through multiple console.log statements). The declareMurderer
+// function has the same scope as the murderer variable on line 140.
+
+
+// Episode 8
+
+const scenario = {
+  murderer: 'Mrs. Peacock',
+  room: 'Conservatory',
+  weapon: 'Lead Pipe'
+};
+
+const changeScenario = function() {
+  scenario.murderer = 'Mrs. Peacock';
+  scenario.room = 'Dining Room';
+
+  const plotTwist = function(room) {
+    if (scenario.room === room) {
+      scenario.murderer = 'Colonel Mustard';
+    }
+
+  const unexpectedOutcome = function(murderer) {
+      if (scenario.murderer === murderer) {
+        scenario.weapon = 'Candle Stick';
+      }
+    }
+
+    unexpectedOutcome('Colonel Mustard');
+  }
+
+  plotTwist('Dining Room');
+}
+
+const declareWeapon = function() {
+  return `The weapon is ${scenario.weapon}.`
+}
+
+changeScenario();
+const verdict = declareWeapon();
+console.log(verdict);
+
+There are two functions nested within the changeScenario function. unexpectedOutcome is nested within
+plotTwist.
+changeScenario is run first, which changes murderer and room.
+Next, plotTwist is called on line 197 with the argument dining room which changes murderer to Colonel Mustard.
+This runs the plotTwist function, which in turn runs unexpectedOutcome nested inside it.
+unexpectedOutcome is run on line 194, which changes weapon to 'candle stick'
+Then lines 204 - 206 are run and return 'the weapon is candle stick'
+
 // #### Episode 9
 //
 // ```js
